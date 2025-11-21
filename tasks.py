@@ -97,7 +97,7 @@ def token_counts(string: str, k: int = 1) -> dict:
     for token in clean_tokens:
         freq[token] = freq.get(token, 0) + 1
 
-    return {word: count for word, count in freq.items() if count > k}
+    return {word: count for word, count in freq.items() if count >= k}
 
 # test:
 text_hist = {'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1}
