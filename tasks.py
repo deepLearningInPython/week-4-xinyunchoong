@@ -92,7 +92,10 @@ print(word_frequencies)
 # Your code here:
 # -----------------------------------------------
 def token_counts(string: str, k: int = 1) -> dict:
-    tokens = string.split()
+    clean = "".join([ch for ch in string.lower()
+                     if ch in "\n\t abcdefghijklmnopqrstuvwxyz0123456789"])
+
+    tokens = clean.split()
     freq = {}
     for token in tokens:
         freq[token] = freq.get(token, 0) + 1
