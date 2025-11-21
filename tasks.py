@@ -45,11 +45,9 @@ print(tokens)
 # Your code here:
 # -----------------------------------------------
 def tokenize(string: str) -> list:
-    clean = "".join([ch for ch in string.lower()
-                     if ch in "\n\t abcdefghijklmnopqrstuvwxyz0123456789"])
-
-    tokens = clean.split()
-    return sorted(set(tokens))
+    tokens = string.lower().split()
+    clean_tokens = [token.strip(".,!?;:") for token in tokens]
+    return sorted(set(clean_tokens))
 # -----------------------------------------------
 
 
